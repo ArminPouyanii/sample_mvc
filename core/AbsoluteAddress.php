@@ -19,12 +19,13 @@
         $this->controller=$url[0];
         $this->method=$url[1];
       }
-      //chech dierctory url
+      //check dierctory url
       $path=$this->controller.'/'.$this->method.'.php';
       if (file_exists($path)) {
         require $path;
       }else {
-        echo "Page Not Found Erorr 404";
+        //call html and css with header page Not Found Absolute Url
+        header('Location: ./style/pageNotFound.html');
       }
     }
     //function with remmove "/"
